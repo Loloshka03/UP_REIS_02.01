@@ -1,0 +1,63 @@
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\bin\Debug\TopPhonesWpf.exe.config
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\bin\Debug\TopPhonesWpf.exe
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\bin\Debug\TopPhonesWpf.pdb
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.csprojResolveAssemblyReference.cache
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\App.g.cs
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf_MarkupCompile.cache
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.g.resources
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.exe
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.pdb
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\NewsForm.baml
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\NewsForm.g.cs
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\LoginForm.baml
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\LoginForm.g.cs
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\RegistrationWindow.baml
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\RegistrationWindow.g.cs
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\ConnectionWindow.baml
+C:\Users\Ruslan\Documents\SharpDevelop Projects\TopPhonesWpf\TopPhonesWpf\obj\Debug\ConnectionWindow.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\bin\Debug\TopPhonesWpf.exe.config
+F:\TopPhonesWpf\TopPhonesWpf\bin\Debug\TopPhonesWpf.exe
+F:\TopPhonesWpf\TopPhonesWpf\bin\Debug\TopPhonesWpf.pdb
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.csprojResolveAssemblyReference.cache
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\ConnectionWindow.baml
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\LoginForm.baml
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\NewsForm.baml
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\RegistrationWindow.baml
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\ConnectionWindow.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\LoginForm.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\NewsForm.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\RegistrationWindow.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\App.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf_MarkupCompile.cache
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.g.resources
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.exe
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.pdb
+G:\TopPhonesWpf\TopPhonesWpf\bin\Debug\TopPhonesWpf.exe.config
+G:\TopPhonesWpf\TopPhonesWpf\bin\Debug\TopPhonesWpf.exe
+G:\TopPhonesWpf\TopPhonesWpf\bin\Debug\TopPhonesWpf.pdb
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.csprojResolveAssemblyReference.cache
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\ConnectionWindow.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\LoginForm.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\NewsForm.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\RegistrationWindow.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\ConnectionWindow.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\LoginForm.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\NewsForm.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\RegistrationWindow.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\App.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf_MarkupCompile.cache
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.g.resources
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.exe
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\TopPhonesWpf.pdb
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\AdminPanel.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\KlientWindow.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\SotrudnikWindow.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\AdminPanel.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\KlientWindow.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\SotrudnikWindow.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\AdminPanel.baml
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\KlientWindow.baml
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\SotrudnikWindow.baml
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\AdminPanel.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\KlientWindow.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\SotrudnikWindow.g.cs

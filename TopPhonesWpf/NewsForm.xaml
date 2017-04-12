@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window
+	x:Class="TopPhonesWpf.Window2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="Новости"
+	Height="500"
+	Width="700">
+	<Grid
+		Background="#909090">
+		<WebBrowser
+			Height="300"
+			Width="500"
+			Source="E:\test.html" />
+		<Button
+			Width="170"
+			Height="38"
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			Margin="0,0,17,20"
+			Content="Продолжить"
+			x:Name="button1"
+			Click="button1_Click" />
+	</Grid>
+</Window>

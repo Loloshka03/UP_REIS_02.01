@@ -33,6 +33,7 @@ namespace TopPhonesWpf
 		{
 			OpenFileDialog ofd = new OpenFileDialog();
 			ofd.ShowDialog();
+			//if ofd.
 		}
 		void button2_Click(object sender, RoutedEventArgs e)
 		{
@@ -48,10 +49,10 @@ namespace TopPhonesWpf
                                                 Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
                                                 Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
                     SqlConnection connectionNewUser = new SqlConnection(ConCheck.ConnectString);
-                    SqlCommand Select_USID = new SqlCommand("select [dbo].[Login].[login]" +
-                    " from [dbo].[Login] inner join[dbo].[roli] on " +
-                    "[dbo].[Login].[roli_id] =[dbo].[roli].[ID_roli]" +
-                    "where login='" + Login_text.Text + "' and alkogolik_pass='" + Pass_box.Password + "'", connectionNewUser);
+                    SqlCommand Select_USID = new SqlCommand("select [dbo].[Klienty].[login]" +
+                    " from [dbo].[Klient] inner join[dbo].[roli] on " +
+                    "[dbo].[Klient].[id_roli] =[dbo].[roli].[id_roli]" +
+                    "where login='" + Login_text.Text + "' and pass='" + Pass_box.Password + "'", connectionNewUser);
                     try
                     {
                         connectionNewUser.Open();
@@ -67,15 +68,16 @@ namespace TopPhonesWpf
                         SqlCommand SelectGuestRole = new SqlCommand("select ID_roli from [dbo].[roli] where Role_Name = 'Гость'"
                             , connectionNewUserInsert);
                         connectionNewUserInsert.Open();
-                        SqlCommand CreateNewUser = new SqlCommand("insert into [dbo].[Login]" +
-                        "([FAM],[IM],[OTCH],[TEL],[Roli_id],[login],[pass])" +
+                        SqlCommand CreateNewUser = new SqlCommand("insert into [dbo].[Klienty]" +
+                        "([Name_Klient],[klient_otch],[klient_fam],[Phone_klient],[id_roli],[login],[pass],[Klient_adress])" +
                         "values ('" + NameClient_textbox.Text + "','" + FamKlient_textbox.Text + "','" + Otch_klient_Textbox.Text
                         + "','" + PhoneKlient_box.Text + "',"
-                        + "'1'" + ",'" + Login_text.Text + "','" + Pass_box.Password + "')"
+                        + "'1'" + ",'" + Login_text.Text + "','" + Pass_box.Password + "','" + "ул. Лолошкина д.14 корп.88')"
                         , connectionNewUserInsert);
                         CreateNewUser.ExecuteNonQuery();
                         connectionNewUserInsert.Close();
                         MessageBox.Show("Вы прошли регистрацию!");
+                        this.Close();
                     }
                     break;
                 case (false):

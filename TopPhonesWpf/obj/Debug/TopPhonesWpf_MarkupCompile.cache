@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\
 TopPhonesWpf
 none
 false
 DEBUG;TRACE
-G:\TopPhonesWpf\TopPhonesWpf\App.xaml
+F:\TopPhonesWpf\TopPhonesWpf\App.xaml
 71672572850
 
 12-1730753832
-121654848548
+121961529087
 AdminPanel.xaml;ConnectionWindow.xaml;KlientWindow.xaml;LoginForm.xaml;NewsForm.xaml;RegistrationWindow.xaml;SotrudnikWindow.xaml;
 
 False

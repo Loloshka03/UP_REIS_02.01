@@ -87,13 +87,13 @@ namespace TopPhonesWpf
                 Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
                 Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
             SqlConnection connectionUser = new SqlConnection(ConCheck.ConnectString);
-            SqlCommand Select_USID = new SqlCommand("select [dbo].[Login].[ID_Login]"+
-                " from [dbo].[Login] inner join[dbo].[roli] on " + 
-                "[dbo].[Login].[roli_id] =[dbo].[roli].[ID_roli]"+
+            SqlCommand Select_USID = new SqlCommand("select [dbo].[Klienty].[id_klienty]"+
+                " from [dbo].[Klienty] inner join[dbo].[roli] on " + 
+                "[dbo].[Klienty].[id_roli] =[dbo].[roli].[ID_roli]"+
                 "where login='" + LoginTextBox.Text + "' and pass='" + PasswordBox.Password + "'", connectionUser);
             SqlCommand Select_ISA = new SqlCommand("select [dbo].[roli].[Role_Name]" +
-                " from [dbo].[Login] inner join[dbo].[roli] on " +
-                "[dbo].[Login].[roli_id] =[dbo].[roli].[ID_roli]" +
+                " from [dbo].[Klienty] inner join[dbo].[roli] on " +
+                "[dbo].[Klienty].[id_roli] =[dbo].[roli].[id_roli]" +
                 "where login='" + LoginTextBox.Text + "' and pass='" + PasswordBox.Password + "'", connectionUser);
                 // SqlCommand Select_ALA = new SqlCommand("select [dbo].[Party_Role].[Alkogolik_Access]" +
              //   " from [dbo].[Alkogolik] inner join[dbo].[Party_Role] on " +
@@ -123,14 +123,19 @@ namespace TopPhonesWpf
             MessageBox.Show(ISA);
             switch (ISA)
             {
-            	case "Admin":
+            	case "Боженька":
             		AdminPanel admnpnl = new AdminPanel();
             		admnpnl.Show();
             		break;
-            	case "Sotrudnik":
+            	case "Ремонтник":
             		SotrudnikWindow strwndw = new SotrudnikWindow();
             		strwndw.Show();
             		break;
+            	case "Продавец":
+            		SotrudnikWindow strwndw1 = new SotrudnikWindow();
+            		strwndw1.Show();
+            		break;
+
             	default:
             		KlientWindow klntwndw = new KlientWindow();
             		klntwndw.Show();

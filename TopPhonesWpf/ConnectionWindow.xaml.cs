@@ -51,8 +51,7 @@ namespace TopPhonesWpf
 			try
             {
              	   
-				Try_Connect.ConnectionString = "Data Source=" + "./BORISOV101"
-                    + "; Initial Catalog= master; Persist Security Info=True;User ID=" 
+				Try_Connect.ConnectionString = "Data Source=" + ServersCB.Text + "; Initial Catalog= master; Persist Security Info=True;User ID=" 
                     + UserName_text.Text + ";Password=\"" + DSPass.Password + "\"";
                 Try_Connect.Open();
                 SqlDataAdapter Base_Adapter = new SqlDataAdapter("exec sp_helpdb", Try_Connect);
@@ -73,7 +72,7 @@ namespace TopPhonesWpf
 			RegistryKey DataBase_Connection = Registry.CurrentConfig;
             RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
             Connection_Base_Party_Options.SetValue("DS", Encrypt.Encrypting(ServersCB.Text));
-            Connection_Base_Party_Options.SetValue("IC", Encrypt.Encrypting(SelectDBCB.Text));
+            Connection_Base_Party_Options.SetValue("IC", Encrypt.Encrypting("topphones"));
             Connection_Base_Party_Options.SetValue("UID", Encrypt.Encrypting(UserName_text.Text));
             Connection_Base_Party_Options.SetValue("PDB", Encrypt.Encrypting(DSPass.Password));
             

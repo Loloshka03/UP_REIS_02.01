@@ -61,3 +61,5 @@ F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\SotrudnikWindow.baml
 F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\AdminPanel.g.cs
 F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\KlientWindow.g.cs
 F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\SotrudnikWindow.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Tovary_wimdow.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Tovary_wimdow.g.cs

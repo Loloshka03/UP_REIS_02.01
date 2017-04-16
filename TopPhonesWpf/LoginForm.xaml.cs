@@ -141,9 +141,11 @@ namespace TopPhonesWpf
             		klntwndw.Show();
             		break;
             	
-            }
             	
-           
+            }
+            
+            	
+            	this.Close();
                 connectionUser.Close();
                 
             }

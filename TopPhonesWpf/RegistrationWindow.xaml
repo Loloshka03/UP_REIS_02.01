@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Window
 	x:Class="TopPhonesWpf.RegistrationWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	Title="Регистрация"
@@ -56,36 +56,64 @@
 			VerticalAlignment="Stretch"
 			Margin="0,20,8,8">
 			<TextBox
-			
 				Canvas.Left="50"
 				Canvas.Top="93"
 				Width="381"
 				Height="24"
-				x:Name="FamKlient_textbox" />
+				x:Name="FamKlient_textbox"
+				Foreground="#FFC1C1C1"
+				Text="Фамилия"
+				LostFocus="FamKlient_textbox_LostFocus"
+				PreviewMouseLeftButtonDown="FamKlient_textbox_PreviewMouseLeftButtonDown"
+				SelectionChanged="FamKlient_textbox_SelectionChanged"
+				GotFocus="FamKlient_textbox_GotFocus" />
 			<PasswordBox
 				Width="238"
-				Height="25.5"
 				Canvas.Left="50"
-				Canvas.Top="161.5"
-				x:Name="Pass_box" />
+				x:Name="Pass_box"
+				Password="Пароль"
+				Foreground="#FFC1C1C1"
+				Height="26"
+				Canvas.Top="159"
+				GotFocus="Pass_box_GotFocus" />
 			<PasswordBox
 				Width="238"
 				Height="25.5"
 				Canvas.Left="50"
 				Canvas.Top="201.25"
-				x:Name="ConfPass_Box" />
+				x:Name="ConfPass_Box"
+				Password="Пароль"
+				Foreground="#FFC1C1C1"
+				GotFocus="ConfPass_Box_GotFocus"
+				LostFocus="ConfPass_Box_LostFocus"
+				Background="#FFFFFFFF" />
 			<TextBox
 				Width="381"
 				Height="24"
 				Canvas.Top="61"
 				Canvas.Left="50"
-				x:Name="NameClient_textbox" />
+				x:Name="NameClient_textbox"
+				MouseLeftButtonDown="NameClient_textbox_MouseLeftButtonDown"
+				MouseDown="NameClient_textbox_MouseDown"
+				Text="Имя"
+				MouseEnter="NameClient_textbox_MouseEnter"
+				PreviewMouseLeftButtonDown="NameClient_textbox_PreviewMouseLeftButtonDown"
+				LostFocus="NameClient_textbox_LostFocus"
+				Foreground="#FFC1C1C1"
+				SelectionChanged="NameClient_textbox_SelectionChanged"
+				GotFocus="NameClient_textbox_GotFocus" />
 			<TextBox
 				Width="381"
 				Height="24"
 				Canvas.Left="50"
 				Canvas.Top="127"
-				x:Name="Otch_klient_Textbox" />
+				x:Name="Otch_klient_Textbox"
+				Text="Отчество"
+				Foreground="#FFC1C1C1"
+				PreviewMouseLeftButtonDown="Otch_klient_Textbox_PreviewMouseLeftButtonDown"
+				LostFocus="Otch_klient_Textbox_LostFocus"
+				SelectionChanged="Otch_klient_Textbox_SelectionChanged"
+				GotFocus="Otch_klient_Textbox_GotFocus" />
 			<RadioButton
 				Canvas.Left="50"
 				Canvas.Top="245"
@@ -98,10 +126,10 @@
 				GroupName="Pol" />
 			<TextBox
 				Width="273"
-				Height="29"
 				x:Name="PhoneKlient_box"
 				Canvas.Left="50"
-				Canvas.Top="268" />
+				Canvas.Top="268"
+				Height="28" />
 		</Canvas>
 		<Button
 			Width="190"

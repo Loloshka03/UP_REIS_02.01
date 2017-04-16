@@ -99,6 +99,10 @@
       <DependentUpon>SotrudnikWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Tovary_wimdow.xaml.cs">
+      <DependentUpon>Tovary_wimdow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="AdminPanel.xaml" />
@@ -108,6 +112,7 @@
     <Page Include="NewsForm.xaml" />
     <Page Include="RegistrationWindow.xaml" />
     <Page Include="SotrudnikWindow.xaml" />
+    <Page Include="Tovary_wimdow.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

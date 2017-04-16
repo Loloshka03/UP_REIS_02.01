@@ -85,5 +85,134 @@ namespace TopPhonesWpf
                     break;
             }
 		}
+		
+	
+		
+		void NameClient_textbox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+						
+		{if (NameClient_textbox.Text=="Имя") 
+			{NameClient_textbox.Text="";}}
+		
+		void NameClient_textbox_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+				if (NameClient_textbox.Text=="Имя") 
+			{NameClient_textbox.Text="";}
+		}
+		
+		void NameClient_textbox_MouseEnter(object sender, MouseEventArgs e)
+		{
+		
+		}
+		
+
+		
+		void NameClient_textbox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+if (NameClient_textbox.Text=="Имя") 
+			{NameClient_textbox.Text="";}		
+			NameClient_textbox.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
+		}
+		
+	
+		
+		void NameClient_textbox_LostFocus(object sender, RoutedEventArgs e)
+		{
+if (NameClient_textbox.Text=="") 
+			{NameClient_textbox.Text="Имя";
+NameClient_textbox.Foreground = new SolidColorBrush(Color.FromRgb(193,193,193));}
+
+		}
+		
+		void FamKlient_textbox_LostFocus(object sender, RoutedEventArgs e)
+		{
+			if (FamKlient_textbox.Text=="") 
+			{FamKlient_textbox.Text="Фамилия";
+FamKlient_textbox.Foreground = new SolidColorBrush(Color.FromRgb(193,193,193));}
+		}
+		
+		void FamKlient_textbox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			if (FamKlient_textbox.Text=="Фамилия") 
+			{FamKlient_textbox.Text="";}		
+			FamKlient_textbox.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
+		}
+		
+		void Otch_klient_Textbox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			if (Otch_klient_Textbox.Text=="Отчество") 
+			{Otch_klient_Textbox.Text=""; }
+				Otch_klient_Textbox.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
+
+		}
+		
+		void Otch_klient_Textbox_LostFocus(object sender, RoutedEventArgs e)
+		{
+			if (Otch_klient_Textbox.Text=="") 
+			{Otch_klient_Textbox.Text="Отчество";		
+				Otch_klient_Textbox.Foreground = new SolidColorBrush(Color.FromRgb(193,193,193));}
+			
+		}
+		
+		void NameClient_textbox_SelectionChanged(object sender, RoutedEventArgs e)
+		{
+			
+		}
+		
+		void FamKlient_textbox_SelectionChanged(object sender, RoutedEventArgs e)
+		{
+			
+		}
+		
+		void Otch_klient_Textbox_SelectionChanged(object sender, RoutedEventArgs e)
+		{
+			
+		}
+		
+		void Otch_klient_Textbox_GotFocus(object sender, RoutedEventArgs e)
+		{
+			if (Otch_klient_Textbox.Text=="Отчество") 
+			{Otch_klient_Textbox.Text=""; }
+				Otch_klient_Textbox.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
+		}
+		
+		void NameClient_textbox_GotFocus(object sender, RoutedEventArgs e)
+		{
+			if (NameClient_textbox.Text=="Имя") 
+			{NameClient_textbox.Text="";}		
+			NameClient_textbox.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
+		}
+		
+		void FamKlient_textbox_GotFocus(object sender, RoutedEventArgs e)
+		{
+			if (FamKlient_textbox.Text=="Фамилия") 
+			{FamKlient_textbox.Text="";}		
+			FamKlient_textbox.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
+		}
+		
+		void Pass_box_GotFocus(object sender, RoutedEventArgs e)
+		{
+			Pass_box.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
+			if (Pass_box.Password=="Пароль") 
+			{Pass_box.Password="";
+			}
+						
+		}
+		
+		void ConfPass_Box_GotFocus(object sender, RoutedEventArgs e)
+		{
+ConfPass_Box.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
+			if (ConfPass_Box.Password=="Пароль") 
+			{ConfPass_Box.Password="";
+			}			
+		}
+		
+		void ConfPass_Box_LostFocus(object sender, RoutedEventArgs e)
+		{
+			if 	(ConfPass_Box.Password==Pass_box.Password) {Pass_box.Background= new SolidColorBrush(Color.FromRgb(12,255,0));
+			ConfPass_Box.Background= new SolidColorBrush(Color.FromRgb(12,255,0));}
+			else
+			{Pass_box.Background= new SolidColorBrush(Color.FromRgb(255,12,0));
+			ConfPass_Box.Background= new SolidColorBrush(Color.FromRgb(255,12,0));}
+		}
 	}
 }

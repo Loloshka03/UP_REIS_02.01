@@ -27,5 +27,10 @@ namespace TopPhonesWpf
 		{
 			InitializeComponent();
 		}
+		void button1_Click(object sender, RoutedEventArgs e)
+		{
+			Tovary_wimdow tvrwndw = new Tovary_wimdow();
+			tvrwndw.Show();
+		}
 	}
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+	x:Class="TopPhonesWpf.Tovary_wimdow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="TopPhonesWpf"
+	Height="546"
+	Width="772"
+	x:Name="window1"
+	Loaded="window1_Loaded">
+	<Grid
+		Background="#909090">
+		<DataGrid
+			AutoGenerateColumns="False"
+			x:Name="phonesGrid"
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch"
+			Margin="162,0,0,114">
+	       <DataGrid.Columns>
+				<DataGridTextColumn
+					Binding="{Binding Name_proizv}"
+					Header="Производитель"
+					Width="120" />
+				<DataGridTextColumn
+					Binding="{Binding nazvanie_tovara_sklad}"
+					Header="Название товара"
+					Width="125" />
+				<DataGridTextColumn
+					Binding="{Binding kol_vo}"
+					Header="Количество"
+					Width="80" />
+				<DataGridTextColumn 
+					Binding="{Binding cena}"
+					Header="Цена"
+					Width="100"
+					/>	
+			</DataGrid.Columns>		
+		</DataGrid>
+		<Button
+			Content="Button"
+			Width="136"
+			Height="28"
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="7,7,0,0" />
+		<Button
+			Content="Button"
+			Height="28"
+			Width="133"
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="9,49,0,0" />
+		<Button
+			Content="Button"
+			Height="29"
+			Width="132"
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="11,86,0,0" />
+		<Button
+			Content="Button"
+			Height="29"
+			Width="132"
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="11,123,0,0" />
+		<Button
+			Content="Button"
+			Height="29"
+			Width="132"
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="11,160,0,0" />
+		<Button
+			Content="Button"
+			Width="203"
+			Height="72"
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			Margin="0,0,8,6" />
+	</Grid>
+</Window>

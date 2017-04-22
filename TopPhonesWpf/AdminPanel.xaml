@@ -77,11 +77,11 @@
 			<Button
 				Height="34"
 				x:Name="button4_Copy1"
-				Click="button4_Click"
 				Width="90"
 				Canvas.Top="498"
 				Canvas.Left="68.5"
-				Content="Изменить" />
+				Content="Изменить"
+				Click="button4_Copy1_Click" />
 			<TextBox
 				Name="txtbx1"
 				Width="120"

@@ -29,6 +29,7 @@ namespace TopPhonesWpf
 		string vyb;
 		object bl;
 		SelectionChangedEventArgs i;
+		tablefillclass tfk = new tablefillclass ();
 		public AdminPanel()
 		{
 			InitializeComponent();
@@ -41,6 +42,7 @@ namespace TopPhonesWpf
 		void button2_Click(object sender, RoutedEventArgs e)
 		{
 			SotrudnikWindow strdnkwndw = new SotrudnikWindow();
+			strdnkwndw.role = "Боженька";
 			strdnkwndw.Show();
 		}
 	
@@ -120,7 +122,224 @@ namespace TopPhonesWpf
                 	connection2.Close();
                 	cmbx1_SelectionChanged(bl, i);
 				break;
-				//case ""
+			case "Договор":
+					ConnectionClass ConCheck3 = new ConnectionClass();
+            		RegistryKey DataBase_Connection3 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options3 = DataBase_Connection3.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck3.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options3.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options3.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options3.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options3.GetValue("PDB").ToString()));
+                	SqlConnection connection3 = new SqlConnection(ConCheck3.ConnectString);
+                	connection3.Open();
+                	SqlCommand command3 = new SqlCommand("[dbo].[Dogovor_add]", connection3);
+                	command3.CommandType = CommandType.StoredProcedure;
+                	command3.Parameters.AddWithValue("@Date_remont", txtbx1.Text);
+                	command3.Parameters.AddWithValue("@time_remont", txtbx2.Text);
+                	
+                	command3.ExecuteNonQuery();
+                	connection3.Close();
+                	cmbx1_SelectionChanged(bl, i);
+				break;
+			case "Должность":
+					ConnectionClass ConCheck4 = new ConnectionClass();
+            		RegistryKey DataBase_Connection4 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options4 = DataBase_Connection4.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck4.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options4.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options4.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options4.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options4.GetValue("PDB").ToString()));
+                	SqlConnection connection4 = new SqlConnection(ConCheck4.ConnectString);
+                	connection4.Open();
+                	SqlCommand command4 = new SqlCommand("[dbo].[dolj_add]", connection4);
+                	command4.CommandType = CommandType.StoredProcedure;
+                	command4.Parameters.AddWithValue("@Nazv_dolj", txtbx1.Text);
+                	command4.ExecuteNonQuery();
+                	connection4.Close();
+                	cmbx1_SelectionChanged(bl, i);
+				break;
+			case "Клиенты":
+					ConnectionClass ConCheck5 = new ConnectionClass();
+            		RegistryKey DataBase_Connection5 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options5 = DataBase_Connection5.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck5.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options5.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options5.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options5.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options5.GetValue("PDB").ToString()));
+                	SqlConnection connection5 = new SqlConnection(ConCheck5.ConnectString);
+                	connection5.Open();
+                	SqlCommand command5 = new SqlCommand("[dbo].[Klienty_add]", connection5);
+                	command5.CommandType = CommandType.StoredProcedure;
+                	command5.Parameters.AddWithValue("@Name_Klient", txtbx1.Text);
+                	command5.Parameters.AddWithValue("@Phone_klient", txtbx2.Text);
+                	command5.Parameters.AddWithValue("@Klient_adress", txtbx3.Text);
+                	command5.Parameters.AddWithValue("@Klient_otch", txtbx4.Text);
+                	command5.Parameters.AddWithValue("@Klient_fam", txtbx5.Text);
+                	command5.Parameters.AddWithValue("@Login", txtbx6.Text);
+                	command5.Parameters.AddWithValue("@pass", txtbx7.Text);
+                	command5.Parameters.AddWithValue("@rol", txtbx8.Text);
+                	command5.ExecuteNonQuery();
+                	connection5.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+                case"Отдел маркетинга":
+                	ConnectionClass ConCheck6 = new ConnectionClass();
+            		RegistryKey DataBase_Connection6 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options6 = DataBase_Connection6.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck6.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options6.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options6.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options6.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options6.GetValue("PDB").ToString()));
+                	SqlConnection connection6 = new SqlConnection(ConCheck6.ConnectString);
+                	connection6.Open();
+                	SqlCommand command6 = new SqlCommand("[dbo].[Otdel_marketinga_add]", connection6);
+                	command6.CommandType = CommandType.StoredProcedure;
+                	command6.Parameters.AddWithValue("@Kontact_tlf", txtbx1.Text);
+                	connection6.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+                case "Подразделения":
+                	ConnectionClass ConCheck7 = new ConnectionClass();
+            		RegistryKey DataBase_Connection7 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options7 = DataBase_Connection7.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck7.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options7.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options7.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options7.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options7.GetValue("PDB").ToString()));
+                	SqlConnection connection7 = new SqlConnection(ConCheck7.ConnectString);
+                	connection7.Open();
+                	SqlCommand command7 = new SqlCommand("[dbo].[Podrazdel_add]", connection7);
+                	command7.CommandType = CommandType.StoredProcedure;
+                	command7.Parameters.AddWithValue("@Podrazdel_name", txtbx1.Text);
+                	connection7.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+                case "Приказ о переводе":
+                	ConnectionClass ConCheck8 = new ConnectionClass();
+            		RegistryKey DataBase_Connection8 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options8 = DataBase_Connection8.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck8.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options8.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options8.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options8.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options8.GetValue("PDB").ToString()));
+                	SqlConnection connection8 = new SqlConnection(ConCheck8.ConnectString);
+                	connection8.Open();
+                	SqlCommand command8 = new SqlCommand("[dbo].[Prikaz_perevod_add]", connection8);
+                	command8.CommandType = CommandType.StoredProcedure;
+                	command8.Parameters.AddWithValue("@Podrazdel_name", txtbx1.Text);
+                	connection8.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+                case "Приказ о приеме на работу":
+                	ConnectionClass ConCheck9 = new ConnectionClass();
+            		RegistryKey DataBase_Connection9 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options9 = DataBase_Connection9.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck9.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options9.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options9.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options9.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options9.GetValue("PDB").ToString()));
+                	SqlConnection connection9 = new SqlConnection(ConCheck9.ConnectString);
+                	connection9.Open();
+                	SqlCommand command9 = new SqlCommand("[dbo].[Prikaz_prikaz_priem_na_rab]", connection9);
+                	command9.CommandType = CommandType.StoredProcedure;
+                	command9.Parameters.AddWithValue("@Utverzh_Date", txtbx1.Text);
+                	command9.Parameters.AddWithValue("@kol_vo_stavok", txtbx2.Text);
+                	connection9.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+                case "Приказ об увольнении":
+                	ConnectionClass ConCheck10 = new ConnectionClass();
+            		RegistryKey DataBase_Connection10 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options10 = DataBase_Connection10.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck10.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options10.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options10.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options10.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options10.GetValue("PDB").ToString()));
+                	SqlConnection connection10 = new SqlConnection(ConCheck10.ConnectString);
+                	connection10.Open();
+                	SqlCommand command10 = new SqlCommand("[dbo].[Prikaz_prikaz_priem_na_rab]", connection10);
+                	command10.CommandType = CommandType.StoredProcedure;
+                	command10.Parameters.AddWithValue("@Date_utv", txtbx1.Text);
+                	command10.Parameters.AddWithValue("@Osnov", txtbx2.Text);
+                	connection10.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+                case "Продажа":
+                	ConnectionClass ConCheck11 = new ConnectionClass();
+            		RegistryKey DataBase_Connection11 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options11 = DataBase_Connection11.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck11.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options11.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options11.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options11.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options11.GetValue("PDB").ToString()));
+                	SqlConnection connection11 = new SqlConnection(ConCheck11.ConnectString);
+                	connection11.Open();
+                	SqlCommand command11 = new SqlCommand("[dbo].[Prikaz_prikaz_priem_na_rab]", connection11);
+                	command11.CommandType = CommandType.StoredProcedure;
+                	command11.Parameters.AddWithValue("@sale_prodaja", txtbx1.Text);
+                	command11.Parameters.AddWithValue("@kol_vo_tovara", txtbx2.Text);
+                	command11.Parameters.AddWithValue("@summ_pokup", txtbx3.Text);
+                	connection11.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+                case"Реклама":
+                	ConnectionClass ConCheck12 = new ConnectionClass();
+            		RegistryKey DataBase_Connection12 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options12 = DataBase_Connection12.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck12.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options12.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options12.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options12.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options12.GetValue("PDB").ToString()));
+                	SqlConnection connection12 = new SqlConnection(ConCheck12.ConnectString);
+                	connection12.Open();
+                	SqlCommand command12 = new SqlCommand("[dbo].[Prikaz_prikaz_priem_na_rab]", connection12);
+                	command12.CommandType = CommandType.StoredProcedure;
+                	command12.Parameters.AddWithValue("@date_nach_vyx", txtbx1.Text);
+                	command12.Parameters.AddWithValue("@date_okonch_vyx", txtbx2.Text);
+                	command12.Parameters.AddWithValue("@End_efir_date", txtbx3.Text);
+                	command12.Parameters.AddWithValue("@Prodolj", txtbx4.Text);
+                	command12.Parameters.AddWithValue("@Obsch_kol_vo", txtbx5.Text);
+                	command12.Parameters.AddWithValue("@Naimen_uslug", txtbx6.Text);
+                	command12.Parameters.AddWithValue("@Rekl_time_sut", txtbx7.Text);
+                	command12.Parameters.AddWithValue("@Oplat_sut", txtbx8.Text);
+                	connection12.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+                case"Ремонт":
+                	ConnectionClass ConCheck13 = new ConnectionClass();
+            		RegistryKey DataBase_Connection13 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options13 = DataBase_Connection13.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck13.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options13.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options13.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options13.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options13.GetValue("PDB").ToString()));
+                	SqlConnection connection13 = new SqlConnection(ConCheck13.ConnectString);
+                	connection13.Open();
+                	SqlCommand command13 = new SqlCommand("[dbo].[Prikaz_prikaz_priem_na_rab]", connection13);
+                	command13.CommandType = CommandType.StoredProcedure;
+                	command13.Parameters.AddWithValue("@stoimost", txtbx1.Text);
+                	command13.Parameters.AddWithValue("@type_nepoladky", txtbx2.Text);
+                	connection13.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+                case"Склад":
+                	ConnectionClass ConCheck14 = new ConnectionClass();
+            		RegistryKey DataBase_Connection14 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options14 = DataBase_Connection14.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck14.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options14.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options14.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options14.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options14.GetValue("PDB").ToString()));
+                	SqlConnection connection14 = new SqlConnection(ConCheck14.ConnectString);
+                	connection14.Open();
+                	SqlCommand command14 = new SqlCommand("[dbo].[Prikaz_prikaz_priem_na_rab]", connection14);
+                	command14.CommandType = CommandType.StoredProcedure;
+                	command14.Parameters.AddWithValue("@Sklad_add", txtbx1.Text);
+                	command14.Parameters.AddWithValue("@type_nepoladky", txtbx2.Text);
+                	connection14.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;
+						
 			}
 			}
 			catch (Exception ex)
@@ -131,6 +350,7 @@ namespace TopPhonesWpf
 		
 		void del_button_click(object sender, RoutedEventArgs e)
 		{
+			try{
 			switch (Convert.ToString(cmbx1.SelectedItem))
 			{
 					
@@ -152,25 +372,62 @@ namespace TopPhonesWpf
                 	cmbx1_SelectionChanged(bl, i);
 					break;
 				case "Поставщик":
-				//	ConnectionClass ConCheck1 = new ConnectionClass();
-            	//	RegistryKey DataBase_Connection1 = Registry.CurrentConfig;
-            	//	RegistryKey Connection_Base_Party_Options1 = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	//	ConCheck.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()),            		                            
-                //	Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                //	Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                //	Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                //	SqlConnection connection1 = new SqlConnection(ConCheck.ConnectString);
-                //	connection.Open();
-                //	SqlCommand command1 = new SqlCommand("[dbo].[Prizvoditel_add]", connection);
-                //	command.CommandType = CommandType.StoredProcedure;
-                //	command.Parameters.AddWithValue("@id", txtbx1.Text);
-                //	command.Parameters.AddWithValue("@name_proizv", txtbx2.Text);
-                //	command.Parameters.AddWithValue("@Phone_proizv", txtbx3.Text);
-                //	command.Parameters.AddWithValue("@Adress_proizv", txtbx4.Text);
-                //	command.ExecuteNonQuery();
-                //	connection.Close();
+					ConnectionClass ConCheck1 = new ConnectionClass();
+            		RegistryKey DataBase_Connection1 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options1 = DataBase_Connection1.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck1.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options1.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options1.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options1.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options1.GetValue("PDB").ToString()));
+                	SqlConnection connection1 = new SqlConnection(ConCheck1.ConnectString);
+                	connection1.Open();
+                	SqlCommand command1 = new SqlCommand("[dbo].[Klienty_del]", connection1);
+                	command1.CommandType = CommandType.StoredProcedure;
+                	command1.Parameters.AddWithValue("@id_klienty", txtbx1.Text);
+                	command1.ExecuteNonQuery();
+                	connection1.Close();
+                	cmbx1_SelectionChanged(bl, i);
 					break;
+				case"Клиенты":
+					ConnectionClass ConCheck2 = new ConnectionClass();
+            		RegistryKey DataBase_Connection2 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options2 = DataBase_Connection2.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck2.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options2.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options2.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options2.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options2.GetValue("PDB").ToString()));
+                	SqlConnection connection2 = new SqlConnection(ConCheck2.ConnectString);
+                	connection2.Open();
+                	SqlCommand command2 = new SqlCommand("[dbo].[Klienty_del]", connection2);
+                	command2.CommandType = CommandType.StoredProcedure;
+                	command2.Parameters.AddWithValue("@id_klienty", txtbx1.Text);
+                	command2.ExecuteNonQuery();
+                	connection2.Close();
+                	cmbx1_SelectionChanged(bl, i);
+					break;
+				case "Рекламодатель":
+					ConnectionClass ConCheck3 = new ConnectionClass();
+            		RegistryKey DataBase_Connection3 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options3 = DataBase_Connection3.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck3.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options3.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options3.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options3.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options3.GetValue("PDB").ToString()));
+                	SqlConnection connection3 = new SqlConnection(ConCheck3.ConnectString);
+                	connection3.Open();
+                	SqlCommand command3 = new SqlCommand("[dbo].[Reklamodatel_del]", connection3);
+                	command3.CommandType = CommandType.StoredProcedure;
+                	command3.Parameters.AddWithValue("@ID_reklamodatel", txtbx1.Text);
+                	command3.ExecuteNonQuery();
+                	connection3.Close();
+                	cmbx1_SelectionChanged(bl, i);
+					break;
+					}
 			}
+					catch (Exception bl)
+					{
+						MessageBox.Show("Во время удаления данных произошла следующая ошибка" + bl.Message);
+					}
 		}
 		
 	
@@ -198,6 +455,7 @@ namespace TopPhonesWpf
 			cmbx1.Items.Add("Товар");
 			cmbx1.Items.Add("Товар на складах");
 			cmbx1.Items.Add("Товар склд");
+			cmbx1.SelectedIndex = 2;
 			
 		}
 		void cmbx1_RequestBringIntoView(object sender, RequestBringIntoViewEventArgs e)
@@ -222,741 +480,147 @@ namespace TopPhonesWpf
 					txtbx13.Visibility = Visibility.Hidden;
 			//-----------------------------------------------------
 			//Вывод таблицы			
-					
-			vyb = "Производитель";
-			string sql = "SELECT * FROM Proizvoditel";
-            DataTable edaTable = new DataTable();
-            SqlConnection connection = null;
-            try
-            {
-            	ConnectionClass ConCheck = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection = new SqlConnection(ConCheck.ConnectString);
-                SqlCommand command = new SqlCommand(sql, connection);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection.Open();
-                adapter.Fill(edaTable);
-                phonesGrid.ItemsSource = edaTable.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection != null)
-                    connection.Close();
-            }
+			tfk = new tablefillclass ("SELECT * FROM Proizvoditel");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
 					break;
 			//----------------------------------------------------------------------------
 		case "Поставщик":
-				vyb = "Поставщик";
-			string sql1 = "SELECT * FROM Postavshik";
-            DataTable edaTable1 = new DataTable();
-            SqlConnection connection1 = null;
-            try
-            {
-            	ConnectionClass ConCheck1 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck1.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection1 = new SqlConnection(ConCheck1.ConnectString);
-                SqlCommand command = new SqlCommand(sql1, connection1);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection1.Open();
-                adapter.Fill(edaTable1);
-                phonesGrid.ItemsSource = edaTable1.DefaultView;
+			tfk = new tablefillclass("SELECT * FROM Postavshik");
+           	phonesGrid.ItemsSource = tfk.Table.DefaultView;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection1 != null)
-                    connection1.Close();
-			
-			}
             break;
             //---------------------------------------------------------------------------------------------------
            case "Рекламодатель":
             
-            string sql2 = "SELECT * FROM Reklamodatel";
-            DataTable edaTable2 = new DataTable();
-            SqlConnection connection2 = null;
-            try
-            {
-            	ConnectionClass ConCheck2 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck2.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection2 = new SqlConnection(ConCheck2.ConnectString);
-                SqlCommand command = new SqlCommand(sql2, connection2);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection2.Open();
-                adapter.Fill(edaTable2);
-                phonesGrid.ItemsSource = edaTable2.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection2 != null)
-                    connection2.Close();
-			
-			}
-            
+            tfk = new tablefillclass( "SELECT * FROM Reklamodatel");
+            phonesGrid.ItemsSource = tfk.Table.DefaultView;;
             break;
            case "Договор":
-				 string sql3 = "SELECT * FROM Dogovor";
-            DataTable edaTable3 = new DataTable();
-            SqlConnection connection3 = null;
-            try
-            {
-            	ConnectionClass ConCheck3 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck3.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection3 = new SqlConnection(ConCheck3.ConnectString);
-                SqlCommand command = new SqlCommand(sql3, connection3);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection3.Open();
-                adapter.Fill(edaTable3);
-                phonesGrid.ItemsSource = edaTable3.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection3 != null)
-                    connection3.Close();
-			
-			}            
+            tfk = new tablefillclass("SELECT * FROM Dogovor");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             break;
            case "Должность":
-             string sql4 = "SELECT * FROM Dolj";
-            DataTable edaTable4 = new DataTable();
-            SqlConnection connection4 = null;
-            try
-            {
-            	ConnectionClass ConCheck4 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck4.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection4 = new SqlConnection(ConCheck4.ConnectString);
-                SqlCommand command = new SqlCommand(sql4, connection4);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection4.Open();
-                adapter.Fill(edaTable4);
-                phonesGrid.ItemsSource = edaTable4.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection4 != null)
-                    connection4.Close();
-			
-			}            
+            tfk = new tablefillclass("SELECT * FROM Dolj");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             break;
            case "Клиенты":
-            string sql5 = "SELECT * FROM Klienty";
-            DataTable edaTable5 = new DataTable();
-            SqlConnection connection5 = null;
-            try
-            {
-            	ConnectionClass ConCheck5 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck5.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection5 = new SqlConnection(ConCheck5.ConnectString);
-                SqlCommand command = new SqlCommand(sql5, connection5);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection5.Open();
-                adapter.Fill(edaTable5);
-                phonesGrid.ItemsSource = edaTable5.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection5 != null)
-                    connection5.Close();
-			
-			}
+            txtbx5.Visibility = Visibility.Visible;
+            txtbx6.Visibility = Visibility.Visible;
+            txtbx7.Visibility = Visibility.Visible;
+            txtbx8.Visibility = Visibility.Visible;
+            txtbx9.Visibility = Visibility.Visible;
+            tfk = new tablefillclass("SELECT * FROM Klienty");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             break;
            case "Контракты":
-            string sql6 = "SELECT * FROM Kontrakt";
-            DataTable edaTable6 = new DataTable();
-            SqlConnection connection6 = null;
-            try
-            {
-            	ConnectionClass ConCheck6 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck6.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection6 = new SqlConnection(ConCheck6.ConnectString);
-                SqlCommand command = new SqlCommand(sql6, connection6);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection6.Open();
-                adapter.Fill(edaTable6);
-                phonesGrid.ItemsSource = edaTable6.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection6 != null)
-                    connection6.Close();
-			
-			}
+            tfk =new tablefillclass("SELECT * FROM Kontrakt");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             break;
            case "Отдел маркетинга":
-            string sql7 = "SELECT * FROM Otdel_marketinga";
-            DataTable edaTable7 = new DataTable();
-            SqlConnection connection7 = null;
-            try
-            {
-            	ConnectionClass ConCheck7 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck7.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection7 = new SqlConnection(ConCheck7.ConnectString);
-                SqlCommand command = new SqlCommand(sql7, connection7);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection7.Open();
-                adapter.Fill(edaTable7);
-                phonesGrid.ItemsSource = edaTable7.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection7 != null)
-                    connection7.Close();
-			
-			}
+            tfk = new tablefillclass ("SELECT * FROM Otdel_marketinga");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             	break;
             case "Подразделения":
-            string sql8 = "SELECT * FROM Podrazdel";
-            DataTable edaTable8 = new DataTable();
-            SqlConnection connection8 = null;
-            try
-            {
-            	ConnectionClass ConCheck8 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck8.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection8 = new SqlConnection(ConCheck8.ConnectString);
-                SqlCommand command = new SqlCommand(sql8, connection8);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection8.Open();
-                adapter.Fill(edaTable8);
-                phonesGrid.ItemsSource = edaTable8.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection8 != null)
-                    connection8.Close();
-			
-			}	
+            	tfk = new tablefillclass( "SELECT * FROM Podrazdel");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             	break;
             case "Приказ о переводе":
-            	string sql9 = "SELECT * FROM Prikaz_perevod";
-            DataTable edaTable9 = new DataTable();
-            SqlConnection connection9 = null;
-            try
-            {
-            	ConnectionClass ConCheck9 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck9.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection9 = new SqlConnection(ConCheck9.ConnectString);
-                SqlCommand command = new SqlCommand(sql9, connection9);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection9.Open();
-                adapter.Fill(edaTable9);
-                phonesGrid.ItemsSource = edaTable9.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection9 != null)
-                    connection9.Close();
-			
-			}	
+            	tfk=new tablefillclass ("SELECT * FROM Prikaz_perevod");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             	break;
             case "Приказ об увольнении":
-            	string sql10 = "SELECT * FROM Prikaz_uvoln";
-            DataTable edaTable10 = new DataTable();
-            SqlConnection connection10 = null;
-            try
-            {
-            	ConnectionClass ConCheck10 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck10.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection10 = new SqlConnection(ConCheck10.ConnectString);
-                SqlCommand command = new SqlCommand(sql10, connection10);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection10.Open();
-                adapter.Fill(edaTable10);
-                phonesGrid.ItemsSource = edaTable10.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection10 != null)
-                    connection10.Close();
-			
-			}	
+            	tfk = new tablefillclass( "SELECT * FROM Prikaz_uvoln");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             	break;
             case "Приказ о приеме на работу":
-            string sql11 = "SELECT * FROM Prikaz_priem_na_rab";
-            DataTable edaTable11 = new DataTable();
-            SqlConnection connection11 = null;
-            try
-            {
-            	ConnectionClass ConCheck11 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck11.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection11 = new SqlConnection(ConCheck11.ConnectString);
-                SqlCommand command = new SqlCommand(sql11, connection11);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection11.Open();
-                adapter.Fill(edaTable11);
-                phonesGrid.ItemsSource = edaTable11.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection11 != null)
-                    connection11.Close();
-			
-			}	
-            	
+            	tfk = new tablefillclass ("SELECT * FROM Prikaz_priem_na_rab");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;;            	
             	break;
             case "Продажа":
-            	string sql12 = "SELECT * FROM Prodaja";
-            DataTable edaTable12 = new DataTable();
-            SqlConnection connection12 = null;
-            try
-            {
-            	ConnectionClass ConCheck12 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck12.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection12 = new SqlConnection(ConCheck12.ConnectString);
-                SqlCommand command = new SqlCommand(sql12, connection12);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection12.Open();
-                adapter.Fill(edaTable12);
-                phonesGrid.ItemsSource = edaTable12.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection12 != null)
-                    connection12.Close();
-			
-			}
-            	break;
+            	tfk = new tablefillclass ("SELECT * FROM Prodaja");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
+				break;
             case "Реклама":
-            	string sql13 = "SELECT * FROM Reklama";
-            DataTable edaTable13 = new DataTable();
-            SqlConnection connection13 = null;
-            try
-            {
-            	ConnectionClass ConCheck13 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck13.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection13 = new SqlConnection(ConCheck13.ConnectString);
-                SqlCommand command = new SqlCommand(sql13, connection13);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection13.Open();
-                adapter.Fill(edaTable13);
-                phonesGrid.ItemsSource = edaTable13.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection13 != null)
-                    connection13.Close();
-			
-			}
+				tfk = new tablefillclass("SELECT * FROM Reklama");
+                phonesGrid.ItemsSource =tfk.Table.DefaultView;
             	break;
             case "Ремонт":
-            	string sql14 = "SELECT * FROM Remont";
-            DataTable edaTable14 = new DataTable();
-            SqlConnection connection14 = null;
-            try
-            {
-            	ConnectionClass ConCheck14 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck14.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection14 = new SqlConnection(ConCheck14.ConnectString);
-                SqlCommand command = new SqlCommand(sql14, connection14);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection14.Open();
-                adapter.Fill(edaTable14);
-                phonesGrid.ItemsSource = edaTable14.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection14 != null)
-                    connection14.Close();
-			
-			}
+            	tfk= new tablefillclass("SELECT * FROM Remont");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             	break;
             case "Счет":
-            	string sql15 = "SELECT * FROM Schet";
-            DataTable edaTable15 = new DataTable();
-            SqlConnection connection15 = null;
-            try
-            {
-            	ConnectionClass ConCheck15 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck15.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection15 = new SqlConnection(ConCheck15.ConnectString);
-                SqlCommand command = new SqlCommand(sql15, connection15);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection15.Open();
-                adapter.Fill(edaTable15);
-                phonesGrid.ItemsSource = edaTable15.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection15 != null)
-                    connection15.Close();
-			
-			}
+            	tfk = new tablefillclass("SELECT * FROM Schet");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             	break;
             case "Склад":
-            string sql16 = "SELECT * FROM sklad";
-            DataTable edaTable16 = new DataTable();
-            SqlConnection connection16 = null;
-            try
-            {
-            	ConnectionClass ConCheck16 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck16.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection16 = new SqlConnection(ConCheck16.ConnectString);
-                SqlCommand command = new SqlCommand(sql16, connection16);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection16.Open();
-                adapter.Fill(edaTable16);
-                phonesGrid.ItemsSource = edaTable16.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection16 != null)
-                    connection16.Close();
-			
-			}	
+            	tfk = new tablefillclass("SELECT * FROM sklad");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
+		
             break;
            case "Сотрудник":
-            string sql17 = "SELECT * FROM Sotrudnik";
-            DataTable edaTable17 = new DataTable();
-            SqlConnection connection17 = null;
-            try
-            {
-            	ConnectionClass ConCheck17 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck17.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection17 = new SqlConnection(ConCheck17.ConnectString);
-                SqlCommand command = new SqlCommand(sql17, connection17);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection17.Open();
-                adapter.Fill(edaTable17);
-                phonesGrid.ItemsSource = edaTable17.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection17 != null)
-                    connection17.Close();
-			
-			}
+            tfk = new tablefillclass("SELECT * FROM Sotrudnik");
+                phonesGrid.ItemsSource =tfk.Table.DefaultView;
             break;
            case "Штатное расписание":
-            string sql18 = "SELECT * FROM Stat_rasp";
-            DataTable edaTable18 = new DataTable();
-            SqlConnection connection18 = null;
-            try
-            {
-            	ConnectionClass ConCheck18 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck18.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection18 = new SqlConnection(ConCheck18.ConnectString);
-                SqlCommand command = new SqlCommand(sql18, connection18);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection18.Open();
-                adapter.Fill(edaTable18);
-                phonesGrid.ItemsSource = edaTable18.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection18 != null)
-                    connection18.Close();
-			
-			}
-            	break;
+            tfk = new tablefillclass( "SELECT * FROM Stat_rasp");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
+            break;
             case "Товар":
-            string sql19 = "SELECT * FROM Tovar";
-            DataTable edaTable19 = new DataTable();
-            SqlConnection connection19 = null;
-            try
-            {
-            	ConnectionClass ConCheck19 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck19.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection19 = new SqlConnection(ConCheck19.ConnectString);
-                SqlCommand command = new SqlCommand(sql19, connection19);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection19.Open();
-                adapter.Fill(edaTable19);
-                phonesGrid.ItemsSource = edaTable19.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection19 != null)
-                    connection19.Close();
-			
-			}
+            tfk =new tablefillclass("SELECT * FROM Tovar");
+           
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             	break;
             case "Товар на складах":
-            string sql20 = "SELECT * FROM Tovar_na_skladakh";
-            DataTable edaTable20 = new DataTable();
-            SqlConnection connection20 = null;
-            try
-            {
-            	ConnectionClass ConCheck20 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck20.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection20 = new SqlConnection(ConCheck20.ConnectString);
-                SqlCommand command = new SqlCommand(sql20, connection20);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection20.Open();
-                adapter.Fill(edaTable20);
-                phonesGrid.ItemsSource = edaTable20.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection20 != null)
-                    connection20.Close();
-			
-			}
+            	tfk =new tablefillclass("SELECT * FROM Tovar_na_skladakh");
+                phonesGrid.ItemsSource = tfk.Table.DefaultView;
             	break;
             case "товар склд":
-            string sql21 = "SELECT * FROM Tovar_na_skladakh";
-            DataTable edaTable21 = new DataTable();
-            SqlConnection connection21 = null;
-            try
-            {
-            	ConnectionClass ConCheck21 = new ConnectionClass();
-            	RegistryKey DataBase_Connection = Registry.CurrentConfig;
-            	RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
-            	ConCheck21.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("DS").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("IC").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("UID").ToString()), 
-                Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
-                connection21 = new SqlConnection(ConCheck21.ConnectString);
-                SqlCommand command = new SqlCommand(sql21, connection21);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-				
-                connection21.Open();
-                adapter.Fill(edaTable21);
-                phonesGrid.ItemsSource = edaTable21.DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (connection21 != null)
-                    connection21.Close();
+            	tfk = new tablefillclass("SELECT * FROM Tovar_na_skladakh");
+				phonesGrid.ItemsSource = tfk.Table.DefaultView;
+				break;
 			
-			}
-            break;
 		}
           
 		}
 
+		
+		void button4_Copy1_Click(object sender, RoutedEventArgs e) //Кнопка изменить
+		{
+			try
+			{
+				switch(Convert.ToString(cmbx1.SelectedItem))
+			{
+					case "Клиенты":
+					ConnectionClass ConCheck5 = new ConnectionClass();
+            		RegistryKey DataBase_Connection5 = Registry.CurrentConfig;
+            		RegistryKey Connection_Base_Party_Options5 = DataBase_Connection5.CreateSubKey("DB_PARTY_OPTIOS");
+            		ConCheck5.Connection_Options(Encrypt.Decrypt(Connection_Base_Party_Options5.GetValue("DS").ToString()),            		                            
+                	Encrypt.Decrypt(Connection_Base_Party_Options5.GetValue("IC").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options5.GetValue("UID").ToString()), 
+                	Encrypt.Decrypt(Connection_Base_Party_Options5.GetValue("PDB").ToString()));
+                	SqlConnection connection5 = new SqlConnection(ConCheck5.ConnectString);
+                	connection5.Open();
+                	SqlCommand command5 = new SqlCommand("[dbo].[Klienty_update]", connection5);
+                	command5.CommandType = CommandType.StoredProcedure;
+                	command5.Parameters.AddWithValue("@id_klienty", txtbx1.Text);
+                	command5.Parameters.AddWithValue("@Name_Klient", txtbx2.Text);
+                	command5.Parameters.AddWithValue("@Phone_klient", txtbx3.Text);
+                	command5.Parameters.AddWithValue("@Klient_adress", txtbx4.Text);
+                	command5.Parameters.AddWithValue("@Klient_otch", txtbx5.Text);
+                	command5.Parameters.AddWithValue("@Klient_fam", txtbx6.Text);
+                	command5.Parameters.AddWithValue("@Login", txtbx7.Text);
+                	command5.Parameters.AddWithValue("@pass", txtbx8.Text);
+                	command5.Parameters.AddWithValue("@id_roli", txtbx9.Text);
+                	command5.ExecuteNonQuery();
+                	connection5.Close();
+                	cmbx1_SelectionChanged(bl, i);
+                	break;	
+				}
+			}
+			catch (Exception bl)
+			{
+				MessageBox.Show(bl.Message);
+			}
+		}
 	}
 }

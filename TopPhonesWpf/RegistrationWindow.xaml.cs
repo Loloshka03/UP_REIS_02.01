@@ -17,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Win32;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace TopPhonesWpf
 {
@@ -24,7 +25,9 @@ namespace TopPhonesWpf
 	/// Interaction logic for RegistrationWindow.xaml
 	/// </summary>
 	public partial class RegistrationWindow : Window
-	{
+	{ 	static String phonenumb = @"(\d{10})";
+		public Regex tel_numb = new Regex (phonenumb);
+		
 		public RegistrationWindow()
 		{
 			InitializeComponent();
@@ -36,10 +39,11 @@ namespace TopPhonesWpf
 			//if ofd.
 		}
 		void button2_Click(object sender, RoutedEventArgs e)
-		{
-				switch (Pass_box.Password == ConfPass_Box.Password)
+		{			
+				switch (Pass_box.Password == ConfPass_Box.Password && Pass_box.Password.Length > 6 && tel_numb.IsMatch(PhoneKlient_box.Text))
             {
                 case (true):
+						
                     string NewUserCkeck;
                     ConnectionClass ConCheck = new ConnectionClass();
                     RegistryKey DataBase_Connection = Registry.CurrentConfig;
@@ -50,18 +54,20 @@ namespace TopPhonesWpf
                                                 Encrypt.Decrypt(Connection_Base_Party_Options.GetValue("PDB").ToString()));
                     SqlConnection connectionNewUser = new SqlConnection(ConCheck.ConnectString);
                     SqlCommand Select_USID = new SqlCommand("select [dbo].[Klienty].[login]" +
-                    " from [dbo].[Klient] inner join[dbo].[roli] on " +
-                    "[dbo].[Klient].[id_roli] =[dbo].[roli].[id_roli]" +
-                    "where login='" + Login_text.Text + "' and pass='" + Pass_box.Password + "'", connectionNewUser);
+                    " from [dbo].[Klienty] inner join[dbo].[roli] on " +
+                    "[dbo].[Klienty].[id_roli] =[dbo].[roli].[id_roli]" +
+                    "where login='" + Login_text.Text +  "'", connectionNewUser);
                     try
                     {
                         connectionNewUser.Open();
                         NewUserCkeck = Select_USID.ExecuteScalar().ToString();
+                        
                         connectionNewUser.Close();
                         MessageBox.Show("Пользователь с именем " + NameClient_textbox.Text + ", уже есть!");
                     }
                     catch
-                    {
+                    { 
+                        
                         string GuestRole;
                         int Tel_Value;
                         SqlConnection connectionNewUserInsert = new SqlConnection(ConCheck.ConnectString);
@@ -71,22 +77,23 @@ namespace TopPhonesWpf
                         SqlCommand CreateNewUser = new SqlCommand("insert into [dbo].[Klienty]" +
                         "([Name_Klient],[klient_otch],[klient_fam],[Phone_klient],[id_roli],[login],[pass],[Klient_adress])" +
                         "values ('" + NameClient_textbox.Text + "','" + FamKlient_textbox.Text + "','" + Otch_klient_Textbox.Text
-                        + "','" + PhoneKlient_box.Text + "',"
-                        + "'1'" + ",'" + Login_text.Text + "','" + Pass_box.Password + "','" + "ул. Лолошкина д.14 корп.88')"
+                        + "','"  + indexbox.Text + PhoneKlient_box.Text + "',"
+                        + "'1'" + ",'" + Login_text.Text + "','" + Pass_box.Password + "','" + "Не указан')"
                         , connectionNewUserInsert);
                         CreateNewUser.ExecuteNonQuery();
                         connectionNewUserInsert.Close();
+                       
                         MessageBox.Show("Вы прошли регистрацию!");
                         this.Close();
                     }
                     break;
                 case (false):
-                    MessageBox.Show("Пароли не совпадают, повторите попытку");
+                    MessageBox.Show("Пароли не совпадают или недостаточно длинные. Длинна пароля должна быть не менеем6 символов");
                     break;
             }
-		}
 		
-	
+		
+		}
 		
 		void NameClient_textbox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 						
@@ -208,11 +215,47 @@ ConfPass_Box.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
 		
 		void ConfPass_Box_LostFocus(object sender, RoutedEventArgs e)
 		{
-			if 	(ConfPass_Box.Password==Pass_box.Password) {Pass_box.Background= new SolidColorBrush(Color.FromRgb(12,255,0));
+			if 	(ConfPass_Box.Password==Pass_box.Password && Pass_box.Password.Length > 6) {Pass_box.Background= new SolidColorBrush(Color.FromRgb(12,255,0));
 			ConfPass_Box.Background= new SolidColorBrush(Color.FromRgb(12,255,0));}
 			else
 			{Pass_box.Background= new SolidColorBrush(Color.FromRgb(255,12,0));
 			ConfPass_Box.Background= new SolidColorBrush(Color.FromRgb(255,12,0));}
 		}
-	}
+	
+		
+		void Login_text_GotFocus(object sender, RoutedEventArgs e)
+		{
+			Login_text.Foreground = new SolidColorBrush(Color.FromRgb(0,0,0));
+			if (Login_text.Text=="Логин") 
+			{Login_text.Text="";
+			}	
+		}
+		
+		void Login_text_LostFocus(object sender, RoutedEventArgs e)
+		{
+			if (Login_text.Text=="") 
+			{Login_text.Text="Логин";
+Login_text.Foreground = new SolidColorBrush(Color.FromRgb(193,193,193));}
+		}
+		
+		void Login_text_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+				if (Login_text.Text=="Логин") 
+			{Login_text.Text="";}
+		}
+		
+		void Login_text_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+				{if (Login_text.Text=="Логин") 
+			{Login_text.Text="";}}
+		}
+		
+		void Window_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.Key == Key.F1){
+			Spravka sprw = new Spravka();
+			sprw.send = "Рег";
+			sprw.Show();}
+		}
+}
 }

@@ -27,13 +27,44 @@ namespace TopPhonesWpf
 	/// </summary>
 	public partial class SotrudnikWindow : Window
 	{
+		public string role;
 		public SotrudnikWindow()
 		{
 			InitializeComponent();
 		}
 		void window1_Loaded(object sender, RoutedEventArgs e)
 		{
-			
+			menuItem1.Visibility = Visibility.Collapsed;
+			mnuitm2.Visibility = Visibility.Hidden;
+			mnuitm3.Visibility = Visibility.Hidden;
+			mnuitm4.Visibility = Visibility.Hidden;
+			mnuitm5.Visibility = Visibility.Hidden;
+			button1.Visibility = Visibility.Hidden;
+			switch (role) 
+			{
+				case "Ремонтник":
+					menuItem1.Visibility = Visibility.Visible;
+					break;
+				case "Продавец":
+					mnuitm2.Visibility = Visibility.Visible;
+					break;
+				case "Маркетолог":
+					mnuitm5.Visibility = Visibility.Visible;
+					break;
+				case "Отдел кадров":
+					mnuitm4.Visibility = Visibility.Visible;
+					break;
+				case "склад":
+					mnuitm3.Visibility = Visibility.Visible;
+					break;
+				case "Боженька":
+						menuItem1.Visibility = Visibility.Visible;
+						mnuitm2.Visibility = Visibility.Visible;
+						mnuitm5.Visibility = Visibility.Visible;
+						mnuitm4.Visibility = Visibility.Visible;
+						mnuitm3.Visibility = Visibility.Visible;
+						break;
+			}
 		}
 		void Rrm_zakaz_complekt_Click(object sender, RoutedEventArgs e)
 		{
@@ -243,7 +274,7 @@ namespace TopPhonesWpf
 				
                 connection2.Open();
                 adapter.Fill(edaTable2);
-                phonesGrid.ItemsSource = edaTable2.DefaultView;
+                tovaryGrid.ItemsSource = edaTable2.DefaultView;
 
             }
             catch (Exception ex)
@@ -277,7 +308,7 @@ namespace TopPhonesWpf
 				
                 connection13.Open();
                 adapter.Fill(edaTable13);
-                phonesGrid.ItemsSource = edaTable13.DefaultView;
+                tovaryGrid.ItemsSource = edaTable13.DefaultView;
 
             }
             catch (Exception ex)

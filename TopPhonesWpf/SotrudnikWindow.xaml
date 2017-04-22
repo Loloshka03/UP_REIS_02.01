@@ -45,13 +45,15 @@
 					Click="Rrm_register_remont_Click" />
 			</MenuItem>
 			<MenuItem
-				Header="Продавец">
+				Header="Продавец"
+				Name="mnuitm2">
 				<MenuItem
 					Header="Заказ товара на склад"
 					Name="Prod_zakaz"
 					Click="Prod_zakaz_Click" />
 			</MenuItem>
 			<MenuItem
+				Name="mnuitm3"
 				Header="Работник склада">
 				<MenuItem
 					Header="Редактирование информации о товаре"
@@ -59,34 +61,34 @@
 					Click="Sklad_edit_tovar_Click" />
 			</MenuItem>
 			<MenuItem
+				Name="mnuitm4"
 				Header="Рабоник отдела кадров">
 				<MenuItem
 					Header="Принятие\увольнение сотрудника"
 					Name="ok_rab_add"
-					Click="Ok_rab_add_Click"/>
+					Click="Ok_rab_add_Click" />
 			</MenuItem>
 			<MenuItem
+				Name="mnuitm5"
 				Header="Работник отдела маркетинга">
 				<MenuItem
 					Header="Добавление рекламодателя"
 					Name="mark_add_rklmd"
-					Click="Mark_add_rklmd_Click"					
-				/>
+					Click="Mark_add_rklmd_Click" />
 				<MenuItem
 					Header="Добавление рекламы"
 					Name="mark_add_reklama"
-					Click="Mark_add_reklama_Click"
-				/>
+					Click="Mark_add_reklama_Click" />
 			</MenuItem>
 		</Menu>
 		<DataGrid
 			Width="724"
 			x:Name="tovaryGrid"
-			Grid.Column="0"
-			Grid.Row="0"
-			HorizontalAlignment="Right"
+			Margin="0,26,0,8"
 			VerticalAlignment="Stretch"
-			Margin="0,26,0,8" />
+			HorizontalAlignment="Right"
+			Grid.Row="0"
+			Grid.Column="0" />
 		<TextBox
 			Width="120"
 			Height="20"

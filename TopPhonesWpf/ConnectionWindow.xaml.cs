@@ -43,7 +43,7 @@ namespace TopPhonesWpf
 		
 		void ServersCB_GotMouseCapture(object sender, MouseEventArgs e)
 		{
-			
+			ServersCB.Items.Remove("Выберите источник данных:");
 		}
 		void SelectDBCB_GotMouseCapture(object sender, MouseEventArgs e)
 		{
@@ -69,12 +69,32 @@ namespace TopPhonesWpf
 		} 
 		void button1_Click(object sender, RoutedEventArgs e)
 		{
+			try
+            {
+                SqlConnection Try_Connect = new SqlConnection();
+                Try_Connect.ConnectionString = "Data Source="+ ServersCB.Text+"; Initial Catalog=topphones"
+                    +"; Persist Security Info=True;User ID="+ UserName_text.Text +";Password=\""+ DSPass.Password+"\"";
+                Try_Connect.Open();
+                MessageBox.Show("База данных успешно подключена");
+            }
+            catch (Exception ex)
+            {
+            	MessageBox.Show("База данных не была подключена");
+                MessageBox.Show(ex.Message);
+            }
+			try {
 			RegistryKey DataBase_Connection = Registry.CurrentConfig;
             RegistryKey Connection_Base_Party_Options = DataBase_Connection.CreateSubKey("DB_PARTY_OPTIOS");
             Connection_Base_Party_Options.SetValue("DS", Encrypt.Encrypting(ServersCB.Text));
             Connection_Base_Party_Options.SetValue("IC", Encrypt.Encrypting("topphones"));
             Connection_Base_Party_Options.SetValue("UID", Encrypt.Encrypting(UserName_text.Text));
             Connection_Base_Party_Options.SetValue("PDB", Encrypt.Encrypting(DSPass.Password));
+            
+			}
+            catch (Exception bl)
+            {
+            	MessageBox.Show(bl.Message);
+			}
             
 		}
 		void Window1_ContentRendered(object sender, EventArgs e)
@@ -84,6 +104,14 @@ namespace TopPhonesWpf
 		void SelectDBCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			throw new NotImplementedException();
+		}
+		
+		void Window1_KeyDown(object sender, KeyEventArgs e)
+		{ if (e.Key == Key.F1){
+			Spravka sprw = new Spravka();
+			sprw.send = "Под";
+			sprw.Show();}
+			
 		}
 		
 	}

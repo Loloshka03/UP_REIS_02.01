@@ -103,9 +103,17 @@
       <DependentUpon>SotrudnikWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Spravka.xaml.cs">
+      <DependentUpon>Spravka.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tablefillclass.cs" />
     <Compile Include="Tovary_wimdow.xaml.cs">
       <DependentUpon>Tovary_wimdow.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Zakaz_complektuushix_masterskaya.xaml.cs">
       <DependentUpon>Zakaz_complektuushix_masterskaya.xaml</DependentUpon>
@@ -121,11 +129,56 @@
     <Page Include="RegistrationWindow.xaml" />
     <Page Include="Remont_window.xaml" />
     <Page Include="SotrudnikWindow.xaml" />
+    <Page Include="Spravka.xaml" />
     <Page Include="Tovary_wimdow.xaml" />
+    <Page Include="Window1.xaml" />
     <Page Include="Zakaz_complektuushix_masterskaya.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="новости\0.PNG" />
+    <None Include="новости\1.PNG" />
+    <None Include="новости\BD.png" />
+    <None Include="новости\Hello.png" />
+    <None Include="новости\L.png" />
+    <None Include="новости\R.png" />
+    <None Include="новости\UP.png" />
+    <None Include="новости\Руководство.html" />
+    <None Include="форма авторизации\d.png" />
+    <None Include="форма авторизации\Hello.png" />
+    <None Include="форма авторизации\Login1.png" />
+    <None Include="форма авторизации\Руководство.html" />
+    <None Include="Форма подключения к бд\0.PNG" />
+    <None Include="Форма подключения к бд\1.png" />
+    <None Include="Форма подключения к бд\2.PNG" />
+    <None Include="Форма подключения к бд\3.PNG" />
+    <None Include="Форма подключения к бд\4.PNG" />
+    <None Include="Форма подключения к бд\BD.png" />
+    <None Include="Форма подключения к бд\Hello.png" />
+    <None Include="Форма подключения к бд\L.png" />
+    <None Include="Форма подключения к бд\R.png" />
+    <None Include="Форма подключения к бд\UP.png" />
+    <None Include="Форма подключения к бд\WinRAR archive.rar" />
+    <None Include="Форма подключения к бд\Руководство.html" />
+    <None Include="Форма регистрации\0.PNG" />
+    <None Include="Форма регистрации\1.PNG" />
+    <None Include="Форма регистрации\2.PNG" />
+    <None Include="Форма регистрации\3.PNG" />
+    <None Include="Форма регистрации\4.PNG" />
+    <None Include="Форма регистрации\5.PNG" />
+    <None Include="Форма регистрации\6.PNG" />
+    <None Include="Форма регистрации\7.PNG" />
+    <None Include="Форма регистрации\Hello.png" />
+    <None Include="Форма регистрации\L.png" />
+    <None Include="Форма регистрации\R.png" />
+    <None Include="Форма регистрации\UP.png" />
+    <None Include="Форма регистрации\Руководство.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="новости" />
+    <Folder Include="форма авторизации" />
+    <Folder Include="Форма подключения к бд" />
+    <Folder Include="Форма регистрации" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

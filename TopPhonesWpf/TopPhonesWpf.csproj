@@ -95,12 +95,20 @@
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Remont_window.xaml.cs">
+      <DependentUpon>Remont_window.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SotrudnikWindow.xaml.cs">
       <DependentUpon>SotrudnikWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tovary_wimdow.xaml.cs">
       <DependentUpon>Tovary_wimdow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Zakaz_complektuushix_masterskaya.xaml.cs">
+      <DependentUpon>Zakaz_complektuushix_masterskaya.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -111,8 +119,10 @@
     <Page Include="LoginForm.xaml" />
     <Page Include="NewsForm.xaml" />
     <Page Include="RegistrationWindow.xaml" />
+    <Page Include="Remont_window.xaml" />
     <Page Include="SotrudnikWindow.xaml" />
     <Page Include="Tovary_wimdow.xaml" />
+    <Page Include="Zakaz_complektuushix_masterskaya.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -63,3 +63,9 @@ F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\KlientWindow.g.cs
 F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\SotrudnikWindow.g.cs
 G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Tovary_wimdow.baml
 G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Tovary_wimdow.g.cs
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Tovary_wimdow.baml
+F:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Tovary_wimdow.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Remont_window.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Zakaz_complektuushix_masterskaya.baml
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Remont_window.g.cs
+G:\TopPhonesWpf\TopPhonesWpf\obj\Debug\Zakaz_complektuushix_masterskaya.g.cs

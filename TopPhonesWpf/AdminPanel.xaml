@@ -2,8 +2,10 @@
 <Window
 	x:Class="TopPhonesWpf.AdminPanel" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	Title="God"
-	Width="982"
-	Height="621">
+	x:Name="window1"
+	Loaded="window1_Loaded"
+	Height="632"
+	Width="949">
 	<Grid
 		Background="#909090">
 		<StatusBar
@@ -14,41 +16,21 @@
 			Margin="5,3,3,2"
 			Background="LightGray" />
 		<Canvas
-			Width="227"
+			Background="LightGray"
+			Width="230"
 			Grid.Column="0"
 			Grid.Row="1"
 			HorizontalAlignment="Left"
 			VerticalAlignment="Stretch"
-			Margin="6,8,0,6"
-			Background="LightGray">
-			<Button
-				Canvas.Left="3"
-				Canvas.Top="5"
-				Width="219"
-				Height="34"
-				Content="Добавить товар"
-				x:Name="button3"
-				Click="button3_Click" />
+			Margin="6,8,0,6">
 			<Button
 				Width="219"
-				Height="34"
-				Canvas.Left="3"
-				Canvas.Top="47"
-				Content="Добавить сотрудника" />
-			<Button
-				Width="219"
-				Height="34"
-				Canvas.Top="89"
-				Canvas.Left="3"
-				Content="Добавить ы" />
-			<Button
-				Width="219"
-				Height="34"
 				Canvas.Left="3"
 				Canvas.Top="498"
 				Content="В форму клиента"
 				x:Name="button1"
-				Click="button1_Click" />
+				Click="button1_Click"
+				Height="32" />
 			<Button
 				Width="219"
 				Height="34"
@@ -57,58 +39,136 @@
 				Content="В форму сотрудника"
 				x:Name="button2"
 				Click="button2_Click" />
+			<ComboBox
+				Name="cmbx1"
+				RequestBringIntoView="cmbx1_RequestBringIntoView"
+				SelectionChanged="cmbx1_SelectionChanged"
+				Width="214"
+				Height="28"
+				Canvas.Top="10"
+				Canvas.Left="7.4999999999999432" />
 		</Canvas>
 		<Canvas
-			Width="227"
 			Background="LightGray"
-			Grid.Column="0"
-			Grid.Row="1"
-			HorizontalAlignment="Left"
-			VerticalAlignment="Stretch"
-			Margin="737,8,0,6">
-			<TextBox
-				Height="20"
-				Width="184"
-				Canvas.Left="21.5"
-				Canvas.Top="12" />
-			<TextBox
-				Height="20"
-				Width="184"
-				Canvas.Left="22"
-				Canvas.Top="37" />
-			<TextBox
-				Height="20"
-				Width="184"
-				Canvas.Left="22"
-				Canvas.Top="61" />
-			<TextBox
-				Height="20"
-				Width="184"
-				Canvas.Left="22"
-				Canvas.Top="86" />
-			<TextBox
-				Height="20"
-				Width="184"
-				Canvas.Left="22"
-				Canvas.Top="113" />
-			<Button
-				Height="34"
-				Width="171"
-				Canvas.Top="498"
-				Canvas.Left="35"
-				Content="Добавить"
-				x:Name="button4"
-				Click="button4_Click" />
-		</Canvas>
-		<DataGrid
-			Name="phonesGrid"
-			Width="486"
+			Width="254"
 			Grid.Column="0"
 			Grid.Row="1"
 			HorizontalAlignment="Right"
 			VerticalAlignment="Stretch"
-			Margin="0,8,242,12"
-			SelectionChanged="dataGrid1_SelectionChanged" />
+			Margin="0,6,8,8">
+			<Button
+				Height="34"
+				Content="Добавить"
+				x:Name="button4"
+				Click="button4_Click"
+				Canvas.Left="1"
+				Width="90"
+				Canvas.Top="456"
+				RenderTransformOrigin="0.5,0.5" />
+			<Button
+				Height="34"
+				x:Name="del_button"
+				Click="del_button_click"
+				Width="90"
+				Content="Удалить"
+				Canvas.Left="129"
+				Canvas.Top="456"
+				RenderTransformOrigin="0.5,0.5" />
+			<Button
+				Height="34"
+				x:Name="button4_Copy1"
+				Click="button4_Click"
+				Width="90"
+				Canvas.Top="498"
+				Canvas.Left="68.5"
+				Content="Изменить" />
+			<TextBox
+				Name="txtbx1"
+				Width="120"
+				Height="20"
+				Canvas.Left="68"
+				Canvas.Top="30" />
+			<TextBox
+				Name="txtbx2"
+				Width="120"
+				Height="20"
+				Canvas.Left="69"
+				Canvas.Top="54" />
+			<TextBox
+				Name="txtbx3"
+				Width="120"
+				Height="20"
+				Canvas.Left="69"
+				Canvas.Top="79" />
+			<TextBox
+				Name="txtbx4"
+				Width="120"
+				Height="20"
+				Canvas.Left="69"
+				Canvas.Top="105" />
+			<TextBox
+				Name="txtbx5"
+				Width="120"
+				Height="20"
+				Canvas.Top="133"
+				Canvas.Left="69" />
+			<TextBox
+				Name="txtbx6"
+				Width="120"
+				Height="20"
+				Canvas.Top="161"
+				Canvas.Left="69" />
+			<TextBox
+				Name="txtbx7"
+				Width="120"
+				Height="20"
+				Canvas.Top="189"
+				Canvas.Left="69" />
+			<TextBox
+				Name="txtbx8"
+				Width="120"
+				Height="20"
+				Canvas.Left="69"
+				Canvas.Top="217" />
+			<TextBox
+				Name="txtbx9"
+				Width="120"
+				Height="20"
+				Canvas.Left="69"
+				Canvas.Top="241.5" />
+			<TextBox
+				Name="txtbx10"
+				Width="120"
+				Height="20"
+				Canvas.Left="69"
+				Canvas.Top="267.5" />
+			<TextBox
+				Name="txtbx11"
+				Width="120"
+				Height="20"
+				Canvas.Left="69"
+				Canvas.Top="296" />
+			<TextBox
+				Name="txtbx12"
+				Width="120"
+				Height="20"
+				Canvas.Left="69"
+				Canvas.Top="324" />
+			<TextBox
+				Name="txtbx13"
+				Width="120"
+				Height="20"
+				Canvas.Top="352"
+				Canvas.Left="69" />
+		</Canvas>
+		<DataGrid
+			x:Name="phonesGrid"
+			Width="424.99999999999994"
+			Grid.Column="0"
+			Grid.Row="1"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Stretch"
+			Margin="0,12,270,9" />
 		<Grid.RowDefinitions>
 			<RowDefinition
 				Height="0.0594227504244482*" />
